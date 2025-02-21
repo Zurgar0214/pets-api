@@ -1,10 +1,6 @@
+from pydantic import BaseModel, Field
 import uuid
-class PetEntity():
-    id: str
+class PetEntity(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     name: str
     age: int
-
-    def __init__(self, name, age):
-        self.id = str(uuid.uuid4())
-        self.name = name
-        self.age = age
