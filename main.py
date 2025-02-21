@@ -1,13 +1,23 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, status
 
-app = FastAPI()
+from Controllers.pet_controller import pet_router
 
+app = FastAPI(
+    title="Pets API",
+    debug=True
+)
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+# CORS enabled
+origins = [
+    "*",
+]
 
+app.include_router(pet_router)
 
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
+@app.get(
+        "/healthCheck",
+        status_code=status.HTTP_200_OK
+        )
+async def healthCheck():
+    '''app is already working!'''
+    return {"message": "All works!"}
