@@ -147,5 +147,6 @@ FastAPI provides interactive API documentation:
 - **Swagger UI**: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 - **ReDoc**: [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
 
-## Universidad de Manizales - Programación 3
+## Created By:
+Juan Diego Varón Valencia - Manizales University | Programming 3
 
