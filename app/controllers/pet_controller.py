@@ -37,3 +37,9 @@ def update_pet(request: PetUpdateRequest):
         )
 def delete_pet(pet_id: str) -> PetResponse:
         return pet_service.delete_pet(pet_id)
+@pet_router.get(
+        "/get_age_average",
+        response_model=PetResponse
+        )
+def get_pet_age_average() -> PetResponse:
+        return pet_service.get_average_age()

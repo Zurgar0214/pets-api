@@ -34,3 +34,14 @@ class PetService:
             raise ValueError(f"Pet with ID {pet_id} not found")
         self._pets.remove(old_pet)
         return PetResponse(code='200', message="Pet deleted successfully", data=None)
+
+    def get_average_age(self) -> PetResponse:
+        if not self._pets:
+            return PetResponse(code='200', message="No pets available", data=None)
+
+        total_age = sum(pet.age for pet in self._pets)
+        count = len(self._pets)
+        average_age = total_age / count
+
+        return PetResponse(code='200', message="Average pet age calculated successfully",
+                           data={"average_age": average_age})

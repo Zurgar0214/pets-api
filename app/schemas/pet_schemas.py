@@ -1,3 +1,5 @@
+from typing import Any
+
 from pydantic import BaseModel
 
 class PetCreateRequest(BaseModel):
@@ -12,7 +14,7 @@ class PetSuccessResponse(BaseModel):
 class PetResponse(BaseModel):
     code: str
     message: str
-    data: PetSuccessResponse | None
+    data: Any
 
 class PetUpdateRequest(BaseModel):
     id: str
